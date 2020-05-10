@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Room Prices | RKStory Hotel
+    Payment Methods | RKStory Hotel
 @endsection 
 
 @section('content')
@@ -10,26 +10,21 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add Room Prices</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Add Payment Methods</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">  
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form action="/saveRoomPrices" method="POST">
+          <form action="/saveRoomTypes" method="POST">
             {{csrf_field()}}
             <div class="form-group">
-              {!! Form::label('roomType','RoomType:') !!}
-              <select class="selectpicker form-control" data-live-search="true"
-                      title="" name="roomtype_id">
-                  @foreach ($roomtypes as $roomtype)
-                      <option data-subtext="{{ $roomtype->name }}" value="{{ $roomtype->id }}">{{ $roomtype->name }}</option>
-                  @endforeach
-              </select>
-          </div>
+              <label for="name" class="col-form-label">Name:</label>
+              <input type="text" name="name" class="form-control">
+            </div>
             <div class="form-group">
-              <label for="price" class="col-form-label">Price:</label>
-              <input type="number" name="price" class="form-control">
+              <label for="description" class="col-form-label">Description:</label>
+              <textarea name="description" class="form-control rounded-0"></textarea>
             </div>
         </div>
         <div class="modal-footer">
@@ -48,29 +43,30 @@
       <div class="card">
         <div class="card-header">
           <h4 class="card-title"> 
-            Room Prices 
+            Payment Methods 
             <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">ADD</button>
           </h4>
+         
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-stripped" id="dataTable" >
+            <table id="dataTable" class="table table-stripped">
               <thead class=" text-primary">
                 <th>Id</th>
-                <th>Room Type</th>
-                <th>Price</th>
+                <th>Name</th>
+                <th>Description</th>
                 <th></th>
                 <th></th>
               </thead>
               <tbody>
-                @foreach ($roomPrices as $index => $data)
+                @foreach ($paymentMethods as $index => $data)
                   <tr>
                       <td>{{$index +1}}</td>
-                      <td>{{$data->roomtypes['name']}}</a></td>
-                      <td>{{$data->price}}</td>
-                      <td><a href="{{url('editRoomPrices/'.$data->id)}}" class="btn btn-success">EDIT</a></td>
+                      {{-- <td>{{$data->name}}</td> --}}
+                      {{-- <td>{{$data->description}}</td> --}}
+                      <td><a href="{{url('editRoomTypes/'.$data->id)}}" class="btn btn-success">EDIT</a></td>
                       <td>
-                          <form action="{{url('deleteRoomPrices/'.$data->id)}}" method="POST">
+                          <form action="{{url('deleteRoomTypes/'.$data->id)}}" method="POST">
                               {{csrf_field()}}
                               {{method_field('DELETE')}}
                               <input type="hidden" name="id">
@@ -92,14 +88,5 @@
       $(document).ready( function () {
         $('#dataTable').DataTable();
       } );
-    
     </script>
 @endsection
-
-
-
-
-
-
-
-

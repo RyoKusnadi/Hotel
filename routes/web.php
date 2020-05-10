@@ -43,5 +43,18 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/editRoomPrices/{id}','Admin\RoomPricesController@edit');
     Route::put('/updateRoomPrices/{id}','Admin\RoomPricesController@update');
     Route::delete('/deleteRoomPrices/{id}','Admin\RoomPricesController@delete');
+
+    Route::get('/paymentMethods','Admin\PaymentMethodsController@index');
+    Route::post('/savePaymentMethods','Admin\PaymentMethodsController@save');
+    Route::get('/editPaymentMethods/{id}','Admin\PaymentMethodsController@edit');
+    Route::put('/updatePaymentMethods/{id}','Admin\PaymentMethodsController@update');
+    Route::delete('/deletePaymentMethods/{id}','Admin\PaymentMethodsController@delete');
+
+    Route::get('/rooms','Admin\RoomsController@index');
+    Route::get('/rooms/{id}','Admin\RoomsController@show');
+    Route::post('/saveRooms','Admin\RoomsController@save');
+    Route::get('/editRooms/{id}','Admin\RoomsController@edit');
+    Route::put('/updateRooms/{id}','Admin\RoomsController@update');
+    Route::delete('/deleteRooms/{id}','Admin\RoomsController@delete');
 });
 
