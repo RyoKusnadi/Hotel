@@ -11,8 +11,8 @@
     <div class="col-lg-4">
       <div class="card card-chart">
         <div class="card-header">
-          <h5 class="card-category">Today Clients</h5>
-          <h4 class="card-title"><b>Already Checked In</b></h4>
+          <h5 class="card-category">Today Bookings</h5>
+          <h4 class="card-title"><b>Received Reservation</b></h4>
         </div>
         <div class="card-body">
           <i class="fa fa-users fa-5x" style="float: right"></i>
@@ -34,8 +34,8 @@
     <div class="col-lg-4">
       <div class="card card-chart">
         <div class="card-header">
-          <h5 class="card-category">Today Clients</h5>
-          <h4 class="card-title"><b>Canceled</b></h4>
+          <h5 class="card-category">Today CheckIn</h5>
+          <h4 class="card-title"><b>Canceled Reservation</b></h4>
         </div>
         <div class="card-body">
           <i class="fa fa-user-times fa-5x" style="float: right"></i>

@@ -15,12 +15,13 @@ class CreatePaymentMethods extends Migration
     {
         Schema::create('paymentmethods', function (Blueprint $table) {
             $table->id();
+            $table->integer('book_Id'); 
             $table->integer('paymentAmount'); 
             $table->date('paymentDate'); 
-            $table->integer('card_number');
-            $table->string('card_holdername'); 
-            $table->integer('amount'); 
-            $table->string('description'); 
+            $table->string('payment_categories');
+            $table->integer('card_number')->nullable();
+            $table->string('card_holdername')->nullable(); ; 
+            $table->string('remark')->nullable(); 
             $table->timestamps(); 
         });
     }

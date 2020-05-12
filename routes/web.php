@@ -56,5 +56,23 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/editRooms/{id}','Admin\RoomsController@edit');
     Route::put('/updateRooms/{id}','Admin\RoomsController@update');
     Route::delete('/deleteRooms/{id}','Admin\RoomsController@delete');
+
+    Route::get('/hotelFacilities','Admin\HotelFacilitiesController@index');
+    Route::post('/saveHotelFacilities','Admin\HotelFacilitiesController@save');
+    Route::get('/editHotelFacilities/{id}','Admin\HotelFacilitiesController@edit');
+    Route::put('/updateHotelFacilities/{id}','Admin\HotelFacilitiesController@update');
+    Route::delete('/deleteHotelFacilities/{id}','Admin\HotelFacilitiesController@delete');
+
+    Route::get('/extraServices','Admin\ExtraServicesController@index');
+    Route::post('/saveExtraServices','Admin\ExtraServicesController@save');
+    Route::get('/editExtraServices/{id}','Admin\ExtraServicesController@edit');
+    Route::put('/updateExtraServices/{id}','Admin\ExtraServicesController@update');
+    Route::delete('/deleteExtraServices/{id}','Admin\ExtraServicesController@delete');
+
+    Route::get('/roomDiscounts','Admin\RoomDiscountsController@index');
+    Route::post('/saveRoomDiscounts','Admin\RoomDiscountsController@save');
+    Route::get('/editRoomDiscounts/{id}','Admin\RoomDiscountsController@edit');
+    Route::put('/updateRoomDiscounts/{id}','Admin\RoomDiscountsController@update');
+    Route::delete('/deleteRoomDiscounts/{id}','Admin\RoomDiscountsController@delete');
 });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Models\PaymentMethods;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 class PaymentMethodsController extends Controller
 {
@@ -22,10 +23,13 @@ class PaymentMethodsController extends Controller
 
     public function save(request $request){
         $paymentmethods = new PaymentMethods;
-
-        $paymentmethods->name = $request -> input('name');
-        $paymentmethods->description = $request -> input('description');
-
+        $paymentmethods->book_Id = $request -> input('book_Id');
+        $paymentmethods->paymentAmount = $request -> input('paymentAmount');
+        $paymentmethods->paymentDate = $request -> input('paymentDate');
+        $paymentmethods->payment_categories = $request -> input('payment_categories');
+        $paymentmethods->card_number = $request -> input('card_number');
+        $paymentmethods->card_holdername = $request -> input('card_holdername');
+        $paymentmethods->remarks = $request -> input('remarks');
         $paymentmethods->save();
         
         Session::flash('statusCode','success');
@@ -42,8 +46,13 @@ class PaymentMethodsController extends Controller
 
     public function update(request $request,$id){
         $paymentmethods = PaymentMethods::findorFail($id);
-        $paymentmethods -> name = $request -> input('name');
-        $paymentmethods -> description = $request -> input('description');
+        $paymentmethods->book_Id = $request -> input('book_Id');
+        $paymentmethods->paymentAmount = $request -> input('paymentAmount');
+        $paymentmethods->paymentDate = $request -> input('paymentDate');
+        $paymentmethods->payment_categories = $request -> input('payment_categories');
+        $paymentmethods->card_number = $request -> input('card_number');
+        $paymentmethods->card_holdername = $request -> input('card_holdername');
+        $paymentmethods->remarks = $request -> input('remarks');
         $paymentmethods -> update();
 
         Session::flash('statusCode','success');

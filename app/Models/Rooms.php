@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ExtraServices;
 use Illuminate\Database\Eloquent\Model;
 
 class Rooms extends Model
@@ -14,5 +15,10 @@ class Rooms extends Model
     public function roomtypes()
     {
         return $this->belongsTo(RoomTypes::class,'roomtype_id');
+    }
+    
+    public function extraservices()
+    {
+        return $this->hasMany(ExtraServices::class);
     }
 }

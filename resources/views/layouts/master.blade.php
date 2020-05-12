@@ -65,22 +65,22 @@
               <p>Reservation Form</p>
             </a>
           </li>
-          <li>
-            <a>
+          <li class="{{ 'hotelFacilities' == request()->path() ? 'active' :'' }}">
+            <a href="{{ url('/hotelFacilities') }}/">
               <i class="now-ui-icons users_single-02"></i>
-              <p>Hotel Facility</p>
-            </a>
-          </li>
-          <li class="{{ 'roomTypes' == request()->path() ? 'active' :'' }}" >
-            <a href="{{ url('/roomTypes') }}/">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Room Types</p>
+              <p>Hotel Facilities</p>
             </a>
           </li>
           <li class="{{ 'rooms' == request()->path() ? 'active' :'' }}">
             <a href="{{ url('/rooms') }}">
               <i class="now-ui-icons text_caps-small"></i>
               <p>Rooms</p>
+            </a>
+          </li>
+          <li class="{{ 'roomTypes' == request()->path() ? 'active' :'' }}" >
+            <a href="{{ url('/roomTypes') }}/">
+              <i class="now-ui-icons design_bullet-list-67"></i>
+              <p>Room Types</p>
             </a>
           </li>
           <li class="{{ 'roomPrices' == request()->path() ? 'active' :'' }}">
@@ -90,15 +90,15 @@
             </a>
           </li>
           <li class="{{ 'paymentMethods' == request()->path() ? 'active' :'' }}">
-            <a href="{{ url('/paymentMethods') }}/">
+            <a href="{{ url('/paymentMethods') }}">
               <i class="now-ui-icons text_caps-small"></i>
               <p>Payment Methods</p>
             </a>
           </li>
-          <li>
-            <a href="./typography.html">
+          <li class="{{ 'extraServices' == request()->path() ? 'active' :'' }}" >
+            <a href="{{ url('/extraServices') }}">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Extra Service</p>
+              <p>Extra Services</p>
             </a>
           </li>
           <li>
@@ -107,10 +107,10 @@
               <p>Room Inventory</p>
             </a>
           </li>
-          <li>
-            <a href="./typography.html">
+          <li class="{{ 'roomDiscounts' == request()->path() ? 'active' :'' }}">
+            <a href="{{ url('/roomDiscounts') }}">
               <i class="now-ui-icons text_caps-small"></i>
-              <p>Room Discount</p>
+              <p>Room Discounts</p>
             </a>
           </li>
         </ul>
@@ -152,14 +152,6 @@
                     </form>
                 </div>
             </li>
-              {{-- <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li> --}}
             </ul>
           </div>
         </div>
