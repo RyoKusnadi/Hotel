@@ -41,10 +41,10 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="/dashboard1">
+          <li class="{{ 'usersRole' == request()->path() ? 'active' :'' }}">
+            <a href="{{ url('/usersRole') }}">
               <i class="now-ui-icons design_app"></i>
-              <p>Reservation Report</p>
+              <p>User Roles</p>
             </a>
           </li>
           <li>
@@ -53,20 +53,14 @@
               <p>Rooms Report</p>
             </a>
           </li>
-          <li>
-            <a href="./map.html">
-              <i class="now-ui-icons location_map-big"></i>
-              <p>Reservation</p>
-            </a>
-          </li>
-          <li class="">
-            <a href="/roomTypes">
+          <li class="{{ 'bookings' == request()->path() ? 'active' :'' }}">
+            <a href="{{ url('/bookings') }}">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>Reservation Form</p>
+              <p>Booking</p>
             </a>
           </li>
           <li class="{{ 'hotelFacilities' == request()->path() ? 'active' :'' }}">
-            <a href="{{ url('/hotelFacilities') }}/">
+            <a href="{{ url('/hotelFacilities') }}">
               <i class="now-ui-icons users_single-02"></i>
               <p>Hotel Facilities</p>
             </a>
@@ -87,12 +81,6 @@
             <a href="{{ url('/roomPrices') }}">
               <i class="now-ui-icons text_caps-small"></i>
               <p>Room Prices</p>
-            </a>
-          </li>
-          <li class="{{ 'paymentMethods' == request()->path() ? 'active' :'' }}">
-            <a href="{{ url('/paymentMethods') }}">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Payment Methods</p>
             </a>
           </li>
           <li class="{{ 'extraServices' == request()->path() ? 'active' :'' }}" >

@@ -49,7 +49,7 @@ Edit Room Table | RKStory Hotel
                     </div>
                     <div class="modal-footer">
                       <button type="submit" class="btn btn-warning">UPDATE</button>
-                      <a href="{{url('roomPrices')}}" class="btn btn-danger"> Cancel</a>
+                      <a href="{{url('rooms')}}" class="btn btn-danger"> Cancel</a>
                     </div>
                   </form>
                 </div>

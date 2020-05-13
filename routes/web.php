@@ -74,5 +74,11 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/editRoomDiscounts/{id}','Admin\RoomDiscountsController@edit');
     Route::put('/updateRoomDiscounts/{id}','Admin\RoomDiscountsController@update');
     Route::delete('/deleteRoomDiscounts/{id}','Admin\RoomDiscountsController@delete');
+
+    Route::get('/bookings','Admin\BookingsController@index');
+    Route::post('/saveBookings','Admin\BookingsController@save');
+    Route::get('/editBookings/{id}','Admin\BookingsController@edit');
+    Route::put('/updateBookings/{id}','Admin\BookingsController@update');
+    Route::delete('/deleteBookings/{id}','Admin\BookingsController@delete');
 });
 
