@@ -9,4 +9,9 @@ class RoomDiscounts extends Model
     protected $table = 'roomdiscounts';
     protected $guarded = [];
     protected $fillable = ['name','value','usedcount','description','validdate','validuntil','isvalid'];
+
+    public function bookings()
+    {
+        return $this->hasMany(Bookings::class);
+    }
 }

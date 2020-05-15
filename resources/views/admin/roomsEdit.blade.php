@@ -26,6 +26,14 @@ Edit Room Table | RKStory Hotel
                             </select>
                         </div>
                         <div class="form-group">
+                            {!! Form::label('status','Room Status:') !!}
+                            <select class="selectpicker form-control" data-live-search="true"
+                                    title="" name="status">
+                                    <option value="AVAILABLE">AVAILABLE</option>
+                                    <option value="USED">USED</option>
+                            </select>
+                          </div>
+                        <div class="form-group">
                             <label for="floor" class="col-form-label">Floor:</label>
                             <input name="floor" type="text" class="form-control" value="{{ $rooms->floor }}">
                         </div>

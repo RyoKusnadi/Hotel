@@ -23,7 +23,6 @@
 
 <body class="">
   <div class="wrapper ">
-
     <div class="sidebar" data-color="orange"> <!-- Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow" -->
       <div class="logo">
         <a href="https://www.linkedin.com/in/ryo-kusnadi/" class="simple-text logo-mini">
@@ -59,6 +58,12 @@
               <p>Booking</p>
             </a>
           </li>
+          <li class="{{ 'bookingapprovals' == request()->path() ? 'active' :'' }}">
+            <a href="{{ url('/bookingapprovals') }}">
+              <i class="now-ui-icons ui-1_bell-53"></i>
+              <p>Booking Approval</p>
+            </a>
+          </li>
           <li class="{{ 'hotelFacilities' == request()->path() ? 'active' :'' }}">
             <a href="{{ url('/hotelFacilities') }}">
               <i class="now-ui-icons users_single-02"></i>
@@ -77,22 +82,10 @@
               <p>Room Types</p>
             </a>
           </li>
-          <li class="{{ 'roomPrices' == request()->path() ? 'active' :'' }}">
-            <a href="{{ url('/roomPrices') }}">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Room Prices</p>
-            </a>
-          </li>
           <li class="{{ 'extraServices' == request()->path() ? 'active' :'' }}" >
             <a href="{{ url('/extraServices') }}">
               <i class="now-ui-icons text_caps-small"></i>
               <p>Extra Services</p>
-            </a>
-          </li>
-          <li>
-            <a href="./typography.html">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Room Inventory</p>
             </a>
           </li>
           <li class="{{ 'roomDiscounts' == request()->path() ? 'active' :'' }}">

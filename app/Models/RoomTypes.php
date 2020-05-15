@@ -3,19 +3,13 @@
 namespace App\Models;
 
 use App\Models\Rooms;
-use App\Models\RoomPrices;
 use Illuminate\Database\Eloquent\Model;
 
 class RoomTypes extends Model
 {
     protected $table = 'roomtypes';
     protected $guarded = [];
-    protected $fillable = ['name','description'];
-
-    public function roomprice()
-    {
-        return $this->hasMany(RoomPrices::class);
-    }
+    protected $fillable = ['name','price','description'];
 
     public function room()
     {

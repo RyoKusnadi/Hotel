@@ -16,7 +16,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="/saveBookings" method="POST">
+          <form action="/showBookings" method="POST">
             {{csrf_field()}}
             <div class="form-group">
               <label for="bookno" class="col-form-label">Book No:</label>
@@ -41,10 +41,6 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="status" class="col-form-label">Status:</label>
-              <input type="text" name="status" class="form-control">
-            </div>
-            <div class="form-group">
               <label for="check_in" class="col-form-label">Check In:</label>
               <input type="date" name="check_in" class="form-control">
           </div>
@@ -53,16 +49,14 @@
               <input type="date" name="check_out" class="form-control">
           </div>
           <div class="form-group">
-            <label for="total" class="col-form-label">Total:</label>
-            <input type="number" name="total" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="discount_id" class="col-form-label">Discount:</label>
-            <input type="number" name="discount_id" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="final_price" class="col-form-label">Final Price:</label>
-            <input type="number" name="final_price" class="form-control">
+            {!! Form::label('discounts','Discount:') !!}
+            <select class="selectpicker form-control" data-live-search="true"
+                    title="" name="discount_id">
+                @foreach ($roomdiscounts as $discount)
+                    <option  value="0">NONE</option>
+                    <option data-subtext="{{ $discount->value }}" value="{{ $discount->id }}">{{ $discount->value }}</option>
+                @endforeach
+            </select>
           </div>
         </div>
         <div class="modal-footer">

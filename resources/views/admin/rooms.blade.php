@@ -33,6 +33,14 @@
               </select>
             </div>
             <div class="form-group">
+              {!! Form::label('status','Room Status:') !!}
+              <select class="selectpicker form-control" data-live-search="true"
+                      title="" name="status">
+                      <option value="AVAILABLE">AVAILABLE</option>
+                      <option value="USED">USED</option>
+              </select>
+            </div>
+            <div class="form-group">
               <label for="floor" class="col-form-label">Floor:</label>
               <input type="text" name="floor" class="form-control">
               <div>{{ $errors->first('floor') }}</div>
@@ -42,7 +50,6 @@
               <input type="number" name="beds" class="form-control">
               <div>{{ $errors->first('beds') }}</div>
             </div>
-            {{-- Status Hidden : 0  --}}
             <div class="d-flex flex-column">
               <label for="roompicture">Room Picture:</label>
               <input type="file" name="roompicture" class="py-2">
@@ -102,16 +109,7 @@
                       <td>{{$data->floor}}</td>
                       <td>{{$data->beds}} Bed</td>
                       <td>{{$data->maxCapacity}} Person</td>
-                      {{-- Region Status --}}
-                      <td>
-                        @if ($data->status == 0)
-                            <label class="label label-primary text-xs">Available <i class="fa fa-check"></i></label>
-                        @elseif ($data->status == 1)
-                            <label class="label label-warning text-xs">Booked <i class="fa fa-ban"></i></label>
-                        @elseif ($data->status == 2)
-                            <label class="label label-warning text-xs">Canceled <i class="fa fa-ban"></i></label>
-                        @endif
-                    </td>
+                      <td>{{$data->status}}</td>
                     <td><a href="rooms/{{ $data->id }}">Show Detail</a></td>
                       {{-- End Region Status --}}
                       <td><a href="{{url('editRooms/'.$data->id)}}" class="btn btn-success">EDIT</a></td>

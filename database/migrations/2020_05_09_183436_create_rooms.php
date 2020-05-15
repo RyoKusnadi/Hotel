@@ -20,7 +20,7 @@ class CreateRooms extends Migration
             $table->foreign('roomtype_id')->references('id')->on('roomtypes');
             $table->string('floor');
             $table->integer('beds'); 
-            $table->integer('status')->default(0); 
+            $table->string('status'); 
             $table->string('roomPicture')->nullable(); 
             $table->integer('maxCapacity');
             $table->string('remark')->nullable();

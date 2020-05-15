@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use Carbon\Carbon;
+use App\Models\Rooms;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class DashBoardController extends Controller
@@ -11,6 +14,31 @@ class DashBoardController extends Controller
     public function __construct()
     {
         $this->middleware(['auth']);
+    }
+
+    
+    public function index(){
+        $availablerooms = DB::table('Rooms')
+        ->where('status', '=', 'AVAILABLE')
+        ->orderBy('status','asc')
+        ->count('id');
+
+        $usedrooms = DB::table('Rooms')
+        ->where('status', '=', 'USED')
+        ->orderBy('status','asc')
+        ->count('id');
+
+        $todaybookings = DB::table('bookings')
+        ->where('created_at', '>=', Carbon::today())
+        ->count('id');
+
+        $monthlybookings = DB::table('bookings')
+        ->whereYear('created_at', Carbon::now()->year)
+        ->whereMonth('created_at', Carbon::now()->month)
+        ->count('id');
+
+        return view('admin.dashboard',compact('availablerooms','usedrooms','todaybookings','monthlybookings'))
+            -> with('dashboard');
     }
 
     public function usersRoles()

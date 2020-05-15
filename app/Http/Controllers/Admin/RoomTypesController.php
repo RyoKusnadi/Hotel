@@ -25,6 +25,7 @@ class RoomTypesController extends Controller
         $roomtypes = new RoomTypes;
 
         $roomtypes->name = $request -> input('name');
+        $roomtypes->price = $request -> input('price');
         $roomtypes->description = $request -> input('description');
 
         $roomtypes->save();
@@ -44,6 +45,7 @@ class RoomTypesController extends Controller
     public function update(request $request,$id){
         $roomtypes = RoomTypes::findorFail($id);
         $roomtypes -> name = $request -> input('name');
+        $roomtypes -> price = $request -> input('price');
         $roomtypes -> description = $request -> input('description');
         $roomtypes -> update();
 

@@ -23,6 +23,10 @@
               <input type="text" name="name" class="form-control">
             </div>
             <div class="form-group">
+              <label for="price" class="col-form-label">Price:</label>
+              <input type="number" name="price" class="form-control">
+            </div>
+            <div class="form-group">
               <label for="description" class="col-form-label">Description:</label>
               <textarea name="description" class="form-control rounded-0"></textarea>
             </div>
@@ -54,6 +58,7 @@
               <thead class=" text-primary">
                 <th>Id</th>
                 <th>Name</th>
+                <th>Price</th>
                 <th>Description</th>
                 <th></th>
                 <th></th>
@@ -63,6 +68,7 @@
                   <tr>
                       <td>{{$index +1}}</td>
                       <td>{{$data->name}}</td>
+                      <td>{{$data->price}}</td>
                       <td>{{$data->description}}</td>
                       <td><a href="{{url('editRoomTypes/'.$data->id)}}" class="btn btn-success">EDIT</a></td>
                       <td>

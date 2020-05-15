@@ -18,6 +18,10 @@ Edit RoomTypes Table | RKStory Hotel
                         <input type="text" name="name" class="form-control" value="{{$roomtypes->name}}">
                         </div>
                         <div class="form-group">
+                          <label for="price" class="col-form-label">Price:</label>
+                          <input type="number" name="price" class="form-control" value="{{$roomtypes->price}}">
+                        </div>
+                        <div class="form-group">
                           <label for="description" class="col-form-label">Description:</label>
                           <textarea name="description" id="description" class="form-control">{{ $roomtypes->description }}
                           </textarea>

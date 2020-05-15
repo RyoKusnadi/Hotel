@@ -47,7 +47,7 @@ class RoomsController extends Controller
         $rooms->roomtype_id = $request -> input('roomtype_id');
         $rooms->floor = $request -> input('floor');
         $rooms->beds = $request -> input('beds');
-        // $rooms->status = $request -> "0";
+        $rooms->status = $request -> input('status');
         $rooms->maxcapacity = $request -> input('maxcapacity'); 
         $rooms->remark = $request -> input('remark'); 
 
@@ -66,6 +66,7 @@ class RoomsController extends Controller
         $rooms = Rooms::findorFail($id);
         $rooms -> roomNo = $request -> input('roomNo');
         $rooms -> roomtype_id = $request -> input('roomtype_id');
+        $rooms -> status = $request -> input('status');
         $rooms -> floor = $request -> input('floor');
         $rooms -> beds = $request -> input('beds');
         // region room picture

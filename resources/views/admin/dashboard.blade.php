@@ -62,10 +62,10 @@
         </div>
         <div class="card-body">
           <i class="fas fa-home fa-5x" style="float: right"></i>
-          <div><h2>120 ROOMS</h2></div>
+          <div><h2>{{$availablerooms}} ROOMS</h2></div>
         </div>
         <div class="card-footer" style="background-color: #2F66A9">
-          <a href="/dashboard" style="color:#FFD400">
+          <a href="/rooms" style="color:#FFD400">
               <div class="panel-footer">
                   <span class="pull-left">View Details</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -85,10 +85,10 @@
       </div>
       <div class="card-body">
         <i class="fa fa-user-clock fa-5x" style="float: right"></i>
-        <div><h2>60 ROOMS</h2></div>
+        <div><h2>{{$usedrooms}} ROOMS</h2></div>
       </div>
       <div class="card-footer" style="background-color: #2F66A9">
-        <a href="/dashboard" style="color:#FFD400">
+        <a href="/rooms" style="color:#FFD400">
             <div class="panel-footer">
                 <span class="pull-left">View Details</span>
                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -108,10 +108,10 @@
         </div>
         <div class="card-body">
           <i class="fa fa-book-open fa-5x" style="float: right"></i>
-          <div><h3>30 Transaction</h3></div>
+          <div><h3>{{$todaybookings}} Transaction</h3></div>
         </div>
         <div class="card-footer" style="background-color: #2F66A9">
-          <a href="/dashboard" style="color:#FFD400">
+          <a href="/bookings" style="color:#FFD400">
               <div class="panel-footer">
                   <span class="pull-left">View Details</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -131,10 +131,10 @@
         </div>
         <div class="card-body">
           <i class="fa fa-address-book fa-5x" style="float: right"></i>
-          <div><h3>500 Transaction</h3></div>
+          <div><h3>{{$monthlybookings}} Transaction</h3></div>
         </div>
         <div class="card-footer" style="background-color: #2F66A9">
-          <a href="/dashboard" style="color:#FFD400">
+          <a href="/bookings" style="color:#FFD400">
               <div class="panel-footer">
                   <span class="pull-left">View Details</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

@@ -18,8 +18,8 @@ class Bookings extends Model
     {
         return $this->belongsTo(RoomTypes::class,'roomtype_id');
     }
-    public function discount()
+    public function roomdiscounts()
     {
-        return $this->belongsTo(Discounts::class,'discount_id');
+        return $this->belongsTo(RoomDiscounts::class,'discount_id');
     }
 }

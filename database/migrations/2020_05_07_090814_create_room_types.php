@@ -16,7 +16,8 @@ class CreateRoomTypes extends Migration
         Schema::create('roomtypes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description'); 
+            $table->integer('price'); 
+            $table->string('description')->nullable(); 
             $table->timestamps(); 
         });
     }
@@ -28,6 +29,6 @@ class CreateRoomTypes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_room_types');
+        Schema::dropIfExists('roomtypes');
     }
 }

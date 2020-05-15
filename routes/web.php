@@ -19,14 +19,11 @@ Route::get('/', function () {
 
 Auth::routes();
 //Temporary Make This Due doesnt need Client side
-// Route::get('/home', 'HomeController@index')->name('dashboard');
+Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['auth','admin']], function () {
 
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    });
-    
+    Route::get('/dashboard','Admin\DashBoardController@index');
     Route::get('/usersRole','Admin\DashBoardController@usersRoles');
     Route::get('/editUR/{id}','Admin\DashBoardController@usersRolesEdit');
     Route::put('/editURUpdate/{id}','Admin\DashBoardController@urUpdate');
@@ -37,12 +34,6 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/editRoomTypes/{id}','Admin\RoomTypesController@edit');
     Route::put('/updateRoomTypes/{id}','Admin\RoomTypesController@update');
     Route::delete('/deleteRoomTypes/{id}','Admin\RoomTypesController@delete');
-
-    Route::get('/roomPrices','Admin\RoomPricesController@index');
-    Route::post('/saveRoomPrices','Admin\RoomPricesController@save');
-    Route::get('/editRoomPrices/{id}','Admin\RoomPricesController@edit');
-    Route::put('/updateRoomPrices/{id}','Admin\RoomPricesController@update');
-    Route::delete('/deleteRoomPrices/{id}','Admin\RoomPricesController@delete');
 
     Route::get('/paymentMethods','Admin\PaymentMethodsController@index');
     Route::post('/savePaymentMethods','Admin\PaymentMethodsController@save');
@@ -76,9 +67,15 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::delete('/deleteRoomDiscounts/{id}','Admin\RoomDiscountsController@delete');
 
     Route::get('/bookings','Admin\BookingsController@index');
+    Route::post('/showBookings','Admin\BookingsController@show');
     Route::post('/saveBookings','Admin\BookingsController@save');
     Route::get('/editBookings/{id}','Admin\BookingsController@edit');
     Route::put('/updateBookings/{id}','Admin\BookingsController@update');
     Route::delete('/deleteBookings/{id}','Admin\BookingsController@delete');
+
+    Route::get('/bookingapprovals','Admin\BookingsController@approval');
+    
+    Route::put('/approveBookings/{id}','Admin\BookingsController@approve');
+    Route::put('/declineBookings/{id}','Admin\BookingsController@decline');
 });
 
