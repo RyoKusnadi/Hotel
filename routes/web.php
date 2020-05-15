@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::delete('/deletePaymentMethods/{id}','Admin\PaymentMethodsController@delete');
 
     Route::get('/rooms','Admin\RoomsController@index');
+    Route::get('/roomsReport','Admin\RoomsController@report');
     Route::get('/rooms/{id}','Admin\RoomsController@show');
     Route::post('/saveRooms','Admin\RoomsController@save');
     Route::get('/editRooms/{id}','Admin\RoomsController@edit');
@@ -74,8 +75,10 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::delete('/deleteBookings/{id}','Admin\BookingsController@delete');
 
     Route::get('/bookingapprovals','Admin\BookingsController@approval');
+    Route::get('/bookingreport','Admin\BookingsController@report');
     
     Route::put('/approveBookings/{id}','Admin\BookingsController@approve');
     Route::put('/declineBookings/{id}','Admin\BookingsController@decline');
+
 });
 

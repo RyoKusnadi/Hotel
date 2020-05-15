@@ -25,6 +25,13 @@ class RoomsController extends Controller
         ;
     }
 
+    public function report(){
+        $rooms = Rooms::all();
+        return view('admin.roomsreport')
+            -> with('rooms',$rooms)
+        ;
+    }
+
     public function save(request $request){
         $rooms = new Rooms;
         //Do Validation First

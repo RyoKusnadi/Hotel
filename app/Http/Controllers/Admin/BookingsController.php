@@ -160,4 +160,9 @@ class BookingsController extends Controller
         Session::flash('statusCode','success');
         return redirect('bookingapprovals')->with('status','Data Successfully DECLINED');
     }
+
+    public function report(){
+        $bookings = Bookings::all();
+        return view('admin.bookingsreport')-> with('bookings',$bookings);
+    }
 }

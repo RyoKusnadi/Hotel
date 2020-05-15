@@ -19,6 +19,10 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
   <link rel="stylesheet" href="{{asset('assets/css/dataTables.min.css') }}">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+
+
 </head>
 
 <body class="">
@@ -46,8 +50,14 @@
               <p>User Roles</p>
             </a>
           </li>
-          <li>
-            <a href="./icons.html">
+          <li class="{{ 'bookingreport' == request()->path() ? 'active' :'' }}">
+            <a href="{{url('/bookingreport')}}">
+              <i class="now-ui-icons education_atom"></i>
+              <p>Booking Report</p>
+            </a>
+          </li>
+          <li class="{{ 'roomsReport' == request()->path() ? 'active' :'' }}">
+            <a href="{{url('/roomsReport')}}">
               <i class="now-ui-icons education_atom"></i>
               <p>Rooms Report</p>
             </a>
@@ -62,6 +72,12 @@
             <a href="{{ url('/bookingapprovals') }}">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Booking Approval</p>
+            </a>
+          </li>
+          <li class="{{ 'userMenu' == request()->path() ? 'active' :'' }}">
+            <a href="{{ url('/userMenu') }}">
+              <i class="now-ui-icons ui-1_bell-53"></i>
+              <p>User Menu</p>
             </a>
           </li>
           <li class="{{ 'hotelFacilities' == request()->path() ? 'active' :'' }}">
@@ -190,6 +206,17 @@
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
   <script src="{{asset('assets/js/sweetalert.min.js') }}"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+
   <script>
      @if (session('status'))
       // alert('{{session('status')}}');
