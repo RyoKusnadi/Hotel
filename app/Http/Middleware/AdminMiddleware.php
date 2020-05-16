@@ -22,7 +22,7 @@ class AdminMiddleware
         }
         else
         {
-            return $next($request);
+            return redirect('/home');
         }
     }
 }

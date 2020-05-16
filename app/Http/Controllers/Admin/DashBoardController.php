@@ -8,6 +8,7 @@ use App\Models\Rooms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DashBoardController extends Controller
 {
@@ -16,7 +17,6 @@ class DashBoardController extends Controller
         $this->middleware(['auth']);
     }
 
-    
     public function index(){
         $availablerooms = DB::table('Rooms')
         ->where('status', '=', 'AVAILABLE')

@@ -12,17 +12,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () { return view('auth.login'); })->middleware('guest');
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
 Auth::routes();
-//Temporary Make This Due doesnt need Client side
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['auth','admin']], function () {
-
     Route::get('/dashboard','Admin\DashBoardController@index');
     Route::get('/usersRole','Admin\DashBoardController@usersRoles');
     Route::get('/editUR/{id}','Admin\DashBoardController@usersRolesEdit');
@@ -79,6 +78,5 @@ Route::group(['middleware' => ['auth','admin']], function () {
     
     Route::put('/approveBookings/{id}','Admin\BookingsController@approve');
     Route::put('/declineBookings/{id}','Admin\BookingsController@decline');
-
 });
 
