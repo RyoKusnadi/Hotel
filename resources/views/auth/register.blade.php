@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body{
+        background-image: url('../assets/img/bg_1.jpg');
+    }
+    .container {
+    margin: auto;
+    }
+</style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -94,6 +102,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+                                <a href="/" class="btn btn-primary">Back</a>
                             </div>
                         </div>
                     </form>

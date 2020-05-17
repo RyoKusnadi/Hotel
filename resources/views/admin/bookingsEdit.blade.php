@@ -52,7 +52,7 @@ Edit Booking Table | RKStory Hotel
                           <select class="selectpicker form-control" data-live-search="true"
                                   title="" name="discount_id">
                               @foreach ($discounts as $discount)
-                                  <option data-subtext="{{ $discount->value }}" value="{{ $discount->id }}">{{ $discount->value }}</option>
+                                  <option data-subtext="{{ $discount->value }}" value="{{ $discount->id }}">{{ $discount->value }}%</option>
                               @endforeach
                           </select>
                         </div>

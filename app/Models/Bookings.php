@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Bookings extends Model
 {
     protected $table = 'bookings';
     protected $guarded = [];
-    protected $fillable = ['bookno','room_id','roomtype_id','status','check_in','check_out','total','discount_id','final_price'];
+    protected $fillable = ['bookno','room_id','userid','roomtype_id','status','check_in','check_out','total','discount_id','final_price'];
 
     public function rooms()
     {
@@ -21,5 +22,9 @@ class Bookings extends Model
     public function roomdiscounts()
     {
         return $this->belongsTo(RoomDiscounts::class,'discount_id');
+    }
+    public function users()
+    {
+        return $this->belongsTo(User::class,'userid');
     }
 }

@@ -17,7 +17,7 @@
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
-  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  {{-- <link href="../assets/demo/demo.css" rel="stylesheet" /> --}}
   <link rel="stylesheet" href="{{asset('assets/css/dataTables.min.css') }}">
 
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
@@ -27,7 +27,7 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color="orange"> <!-- Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow" -->
+    <div class="sidebar" data-color="orange">
       <div class="logo">
         <a href="https://www.linkedin.com/in/ryo-kusnadi/" class="simple-text logo-mini">
           RK
@@ -48,6 +48,12 @@
             <a href="{{ url('/usersRole') }}">
               <i class="now-ui-icons design_app"></i>
               <p>User Roles</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url('/home') }}">
+              <i class="now-ui-icons ui-1_bell-53"></i>
+              <p>User Menu</p>
             </a>
           </li>
           <li class="{{ 'bookingreport' == request()->path() ? 'active' :'' }}">
@@ -72,12 +78,6 @@
             <a href="{{ url('/bookingapprovals') }}">
               <i class="now-ui-icons ui-1_bell-53"></i>
               <p>Booking Approval</p>
-            </a>
-          </li>
-          <li class="{{ 'userMenu' == request()->path() ? 'active' :'' }}">
-            <a href="{{ url('/userMenu') }}">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>User Menu</p>
             </a>
           </li>
           <li class="{{ 'hotelFacilities' == request()->path() ? 'active' :'' }}">
@@ -179,12 +179,13 @@
                   <img src="../../../../../../../assets/img/Github.png" width="15" height="15" alt="Ryo's Github" title="Ryo's Github">
                 </a>
               </li>
+              <li style="float: right"></li>
             </ul>
           </nav>
           <div class="copyright" id="copyright">
             &copy; <script>
               document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-            </script> Hotel - Admin Template. All rights reserved.</a>
+            </script> Template By: Creative Team & Edited By Ryo</a>
           </div>
         </div>
       </footer>

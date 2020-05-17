@@ -20,6 +20,10 @@ Route::get('/', function () { return view('auth.login'); })->middleware('guest')
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
+Route::post('/confirmClients', 'HomeController@show');
+Route::post('/saveClients', 'HomeController@save');
+Route::get('/mybooking', 'HomeController@mybooking');
+
 
 Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/dashboard','Admin\DashBoardController@index');

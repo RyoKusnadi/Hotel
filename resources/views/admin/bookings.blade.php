@@ -107,7 +107,7 @@
                       <td>{{$data->check_in}}</td>
                       <td>{{$data->check_out}}</td>
                       <td>{{$data->total}}</td>
-                      <td>{{$data->discount_id}}</td>
+                      <td>{{$data->roomdiscounts['value']}}%</td>
                       <td>{{$data->final_price}}</td>
                       <td><a href="{{url('editBookings/'.$data->id)}}" class="btn btn-success">EDIT</a></td>
                       <td>

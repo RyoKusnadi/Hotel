@@ -12,7 +12,7 @@
 
 @section('content')
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-20">
       <div class="card">
         <div class="card-header">
           <h4 class="card-title"> 
@@ -20,8 +20,8 @@
           </h4>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-stripped" id="dataTable" cellspacing="0" width="100%">
+          <div>
+            <table class="table" id="dataTable">
               <thead class=" text-primary">
                 <th>Id</th>
                 <th>Book No</th>
@@ -32,6 +32,7 @@
                 <th>Check Out</th>
                 <th>Total</th>
                 <th>Final Price</th>
+                <th>Create By</th>
               </thead>
               <tfoot>
                 <th>Id</th>
@@ -43,6 +44,7 @@
                 <th>Check Out</th>
                 <th>Total</th>
                 <th>Final Price</th>
+                <th>Created By</th>
               </tfoot>
               <tbody>
                 @foreach ($bookings as $index => $data)
@@ -56,6 +58,7 @@
                       <td>{{$data->check_out}}</td>
                       <td>{{$data->total}}</td>
                       <td>{{$data->final_price}}</td>
+                      <td>{{$data->users['name']}}</a></td>
                   </tr>
                 @endforeach
               </tbody>

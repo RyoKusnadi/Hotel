@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use DateTime;
 use Carbon\Carbon;
 use App\Models\Rooms;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\RoomDiscounts;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class BookingsController extends Controller
@@ -86,6 +88,8 @@ class BookingsController extends Controller
 
     public function save(request $request){
         $bookings = new Bookings;
+        $userId = Auth::id();
+
         $bookings->bookno = $request -> input('bookno');
         $bookings->room_id = $request -> input('room_id');
         $bookings->roomtype_id = $request -> input('roomtype_id');
@@ -95,6 +99,7 @@ class BookingsController extends Controller
         $bookings->total = $request -> input('total');
         $bookings->discount_id = $request -> input('discount_id');
         $bookings->final_price = $request -> input('final_price');
+        $bookings->userid = $userId;
 
         $bookings->save();
 
@@ -163,6 +168,7 @@ class BookingsController extends Controller
 
     public function report(){
         $bookings = Bookings::all();
-        return view('admin.bookingsreport')-> with('bookings',$bookings);
+        $users = new User;
+        return view('admin.bookingsreport',compact('users'))-> with('bookings',$bookings,$users,'users');
     }
 }
