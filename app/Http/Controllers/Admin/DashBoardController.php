@@ -37,7 +37,17 @@ class DashBoardController extends Controller
         ->whereMonth('created_at', Carbon::now()->month)
         ->count('id');
 
-        return view('admin.dashboard',compact('availablerooms','usedrooms','todaybookings','monthlybookings'))
+        $receivedreservation = DB::table('bookings')
+        ->where('status', '=', 'WAITING')
+        ->orderBy('status','asc')
+        ->count('id');
+
+        $canceledreservation = DB::table('bookings')
+        ->where('status', '=', 'CANCEL')
+        ->orderBy('status','asc')
+        ->count('id');
+
+        return view('admin.dashboard',compact('availablerooms','usedrooms','todaybookings','monthlybookings','receivedreservation','canceledreservation'))
             -> with('dashboard');
     }
 

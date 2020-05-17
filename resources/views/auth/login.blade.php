@@ -52,6 +52,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
+                                <a href="/" class="btn btn-primary">Back</a>
                             </div>
                         </div>
                     </form>

@@ -55,13 +55,13 @@
                             {{csrf_field()}}
                             {{ method_field('PUT') }}
                             <input type="hidden" name="id">
-                            <button type="submit" class="btn btn-danger">DECLINE</button>
+                            <button type="submit" class="btn btn-danger">CANCEL</button>
                         </form> 
                     </td>
                     @elseif($data->status == 'APPROVED')
                       <td><a class="btn btn-success" style="color: whitesmoke">ALREADY APPROVED</a></td>
-                    @elseif($data->status == 'DECLINED')
-                      <td><a class="btn btn-danger" style="color: whitesmoke">ALREADY DECLINED</a></td>
+                    @elseif($data->status == 'CANCEL')
+                      <td><a class="btn btn-danger" style="color: whitesmoke">ALREADY CANCELED</a></td>
                     @endif
                   </tr>
                 @endforeach

@@ -42,6 +42,7 @@ class BookingsController extends Controller
     }
 
     public function show(request $request){
+        
         $bookings = new Bookings;
         $bookings->bookno = $request -> input('bookno');
         $bookings->room_id = $request -> input('room_id');
@@ -80,10 +81,6 @@ class BookingsController extends Controller
         $finalprice = $totalprice - ($totalprice*($disc*0.01));
 
         return view('admin.confirmbookings', compact('finalprice','totalprice','bookings', 'days'));
-        // $bookings->save();
-        
-        // Session::flash('statusCode','success');
-        // return redirect('bookings')->with('status','Data Sucessfully Saved');
     }
 
     public function save(request $request){
@@ -159,11 +156,11 @@ class BookingsController extends Controller
 
     public function decline(request $request,$id){
         $bookings = Bookings::findorFail($id);
-        $bookings -> status = 'DECLINED';
+        $bookings -> status = 'CANCEL';
         $bookings -> update();
 
         Session::flash('statusCode','success');
-        return redirect('bookingapprovals')->with('status','Data Successfully DECLINED');
+        return redirect('bookingapprovals')->with('status','Data Successfully CANCELED');
     }
 
     public function report(){

@@ -41,35 +41,48 @@
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
             <li class="nav-item {{ 'home' == request()->path() ? 'active' :'' }}"><a href="{{ url('/home') }}" class="nav-link">Home</a></li>
+            
+          <?php $islogin = Auth::check() ?>
+        {{-- if is already logged in --}}
+          @if($islogin == true)
             <li class="nav-item {{ 'mybooking' == request()->path() ? 'active' :'' }}"><a href="{{ url('/mybooking') }}"class="nav-link">My Reservation</a></li>
-	            <li class="nav-item dropdown">
-                    <a id="navbarDropdown" style="text-transform:uppercase" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        WELCOME!! {{ Auth::user()->name }} <span class="caret"></span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-						<?php $role= Auth::user()->user_type ?>
-						@if($role == "admin")
-							<a class="dropdown-item" href="{{ url('/dashboard') }}">ADMIN</a>
-							<a class="dropdown-item" href="{{ route('logout') }}"
-							onclick="event.preventDefault();
-											document.getElementById('logout-form').submit();">
-								{{ __('Logout') }}
-							</a>
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-								@csrf
-							</form>
-						@else
-							<a class="dropdown-item" href="{{ route('logout') }}"
-							onclick="event.preventDefault();
-											document.getElementById('logout-form').submit();">
-								{{ __('Logout') }}
-							</a>
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-								@csrf
-							</form>
-						@endif
-                    </div>
-                </li>
+            <li class="nav-item dropdown">
+            <a id="navbarDropdown" style="text-transform:uppercase" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              WELCOME!! {{ Auth::user()->name }} <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            
+              <?php $role= Auth::user()->user_type ?>
+              @if($role == "admin")
+                        <a class="dropdown-item" href="{{ url('/dashboard') }}">ADMIN</a>
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                        </form>
+              @else
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                        </form>
+              @endif
+          @else
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              </li>
+              <li class="nav-item">
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+              </li>
+          @endif
+              </div>
+            </li>
 	        </ul>
 	      </div>
 	    </div>

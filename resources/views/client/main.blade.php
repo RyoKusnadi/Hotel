@@ -26,13 +26,8 @@
                           <h3 class="mb-3">Book your Room</h3>
                           <div class="row">
                               <div class="col-md-12">
-                                  <div class="form-group">
-                                  <input type="text" name='bookby' class="form-control" readonly='true' placeholder="Full Name" value='{{Auth::user()->name}}'>
-                                  </div>
-                              </div>
-                              <div class="col-md-12">
                                 <div class="form-group">
-                                    <select class="selectpicker form-control" data-live-search="true" name="roomtype_id">
+                                    <select required class="selectpicker form-control" data-live-search="true" name="roomtype_id">
                                         <option value="" disabled selected>Room Type </option>
                                         @foreach ($roomtypes as $roomtype)
                                             <option data-subtext="{{ $roomtype->name }}" value="{{ $roomtype->id }}">{{ $roomtype->name }}</option> 
@@ -42,13 +37,13 @@
                               </div>  
                               <div class="col-md-6">
                                   <div class="form-group">
-                                          <input type="date" name="check_in" class="form-control" placeholder="Check-In">
+                                          <input required type="date" name="check_in" class="form-control" placeholder="Check-In">
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   
                                   <div class="form-group">
-                                          <input type="date" name="check_out" class="form-control" placeholder="Check-Out">
+                                          <input required type="date" name="check_out" class="form-control" placeholder="Check-Out">
                                   </div>
                               </div>
                               <div class="col-md-12">
@@ -111,7 +106,7 @@
                       <div class="half left-arrow d-flex align-items-center">
                           <div class="text p-4 p-xl-5 text-center">
                               <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
-                              <p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
+                              <p class="mb-0"><span class="price mr-1">Rp.1.500.000</span> <span class="per">per night</span></p>
                               <h3 class="mb-3"><a href="rooms.html">Suite Room</a></h3>
                               <ul class="list-accomodation">
                                   <li><span>Max:</span> 3 Persons</li>
@@ -127,7 +122,7 @@
                       <div class="half left-arrow d-flex align-items-center">
                           <div class="text p-4 p-xl-5 text-center">
                               <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
-                              <p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
+                              <p class="mb-0"><span class="price mr-1">Rp.1.200.000</span> <span class="per">per night</span></p>
                               <h3 class="mb-3"><a href="rooms.html">Standard Room</a></h3>
                                   <ul class="list-accomodation">
                                   <li><span>Max:</span> 3 Persons</li>
@@ -143,11 +138,11 @@
                       <div class="half right-arrow d-flex align-items-center">
                           <div class="text p-4 p-xl-5 text-center">
                               <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
-                              <p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
+                              <p class="mb-0"><span class="price mr-1">Rp.1.700.000</span> <span class="per">per night</span></p>
                               <h3 class="mb-3"><a href="rooms.html">Family Room</a></h3>
                                   <ul class="list-accomodation">
-                                  <li><span>Max:</span> 3 Persons</li>
-                                  <li><span>Bed:</span> 1</li>
+                                  <li><span>Max:</span> 5 Persons</li>
+                                  <li><span>Bed:</span> 2</li>
                               </ul>
                           </div>
                       </div>
@@ -159,11 +154,11 @@
                       <div class="half right-arrow d-flex align-items-center">
                           <div class="text p-4 p-xl-5 text-center">
                               <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
-                              <p class="mb-0"><span class="price mr-1">$120.00</span> <span class="per">per night</span></p>
+                              <p class="mb-0"><span class="price mr-1">Rp.2.100.000</span> <span class="per">per night</span></p>
                               <h3 class="mb-3"><a href="rooms.html">Deluxe Room</a></h3>
                                   <ul class="list-accomodation">
-                                  <li><span>Max:</span> 3 Persons</li>
-                                  <li><span>Bed:</span> 1</li>
+                                  <li><span>Max:</span> 6 Persons</li>
+                                  <li><span>Bed:</span> 3</li>
                               </ul>
                           </div>
                       </div>
@@ -172,12 +167,19 @@
           </div>
           </div>
 
-          <footer class="footer">
-            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          <footer class="footer" style="float: left; padding:0px; margin:0; ">
+            <p style="float: left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-          </div>
-    </footer>
+            <p style="float: right; margin-right:10px" >Made by : Ryo Kusnadi
+                <a style="margin:0; padding:0" href="https://www.linkedin.com/in/ryo-kusnadi/" target="_blank">|
+                  <img src="../../../../../../../assets/img/linkedin.png" width="15" height="15" alt="Ryo's Linked In" title="Ryo's Linked In"> | 
+                </a>
+                <a style="margin:0; padding:0" href="https://github.com/RyoKusnadi" target="_blank">
+                  <img src="../../../../../../../assets/img/Github.png" width="15" height="15" alt="Ryo's Github" title="Ryo's Github">
+                </a>
+            </p>
+        </footer>
       </section>
       @endsection
 @section('scripts')

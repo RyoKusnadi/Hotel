@@ -20,11 +20,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -37,7 +32,12 @@ class HomeController extends Controller
     }
 
     public function show(request $request){
-         //get last record
+        $islogin = Auth::check();
+        if($islogin == false){
+            return redirect('login');
+        }
+        else{ 
+        //get last record
          $record = Bookings::latest()->first();
          $expNum = $record['id']+1;
  
@@ -45,9 +45,6 @@ class HomeController extends Controller
          if ( date('l',strtotime(date('Y-01-01'))) ){
          $nextInvoiceNumber = 'INV'.date('Y').'-'.$expNum;
          }
-
-       
- 
 
         $bookings = new Bookings;
         $bookings->bookno = $nextInvoiceNumber;
@@ -90,7 +87,7 @@ class HomeController extends Controller
         $finalprice = $totalprice - ($totalprice*($disc*0.01));
 
         return view('client.confirmclients', compact('finalprice','nextInvoiceNumber','totalprice','bookings', 'days','rp'));
-    }
+    }}
     
     public function save(request $request){
         //get last record

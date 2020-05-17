@@ -12,11 +12,11 @@
       <div class="card card-chart">
         <div class="card-header">
           <h5 class="card-category">Today Bookings</h5>
-          <h4 class="card-title"><b>Received Reservation</b></h4>
+          <h4 class="card-title"><b>New Reservation</b></h4>
         </div>
         <div class="card-body">
           <i class="fa fa-users fa-5x" style="float: right"></i>
-          <div><h2>1000 CLIENTS</h2></div>
+          <div><h2>{{$receivedreservation}}  CLIENTS</h2></div>
         </div>
         <div class="card-footer" style="background-color: #2F66A9">
           <a href="/dashboard" style="color:#FFD400">
@@ -39,7 +39,7 @@
         </div>
         <div class="card-body">
           <i class="fa fa-user-times fa-5x" style="float: right"></i>
-          <div><h2>10 CLIENTS</h2></div>
+          <div><h2>{{$canceledreservation}}  CLIENTS</h2></div>
         </div>
         <div class="card-footer" style="background-color: #2F66A9">
           <a href="/dashboard" style="color:#FFD400">

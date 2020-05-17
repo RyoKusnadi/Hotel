@@ -46,14 +46,8 @@
           </li>
           <li class="{{ 'usersRole' == request()->path() ? 'active' :'' }}">
             <a href="{{ url('/usersRole') }}">
-              <i class="now-ui-icons design_app"></i>
+              <i class="now-ui-icons users_single-02"></i>
               <p>User Roles</p>
-            </a>
-          </li>
-          <li>
-            <a href="{{ url('/home') }}">
-              <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>User Menu</p>
             </a>
           </li>
           <li class="{{ 'bookingreport' == request()->path() ? 'active' :'' }}">
@@ -82,13 +76,13 @@
           </li>
           <li class="{{ 'hotelFacilities' == request()->path() ? 'active' :'' }}">
             <a href="{{ url('/hotelFacilities') }}">
-              <i class="now-ui-icons users_single-02"></i>
+              <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Hotel Facilities</p>
             </a>
           </li>
           <li class="{{ 'rooms' == request()->path() ? 'active' :'' }}">
             <a href="{{ url('/rooms') }}">
-              <i class="now-ui-icons text_caps-small"></i>
+              <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Rooms</p>
             </a>
           </li>
@@ -100,13 +94,13 @@
           </li>
           <li class="{{ 'extraServices' == request()->path() ? 'active' :'' }}" >
             <a href="{{ url('/extraServices') }}">
-              <i class="now-ui-icons text_caps-small"></i>
+              <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Extra Services</p>
             </a>
           </li>
           <li class="{{ 'roomDiscounts' == request()->path() ? 'active' :'' }}">
             <a href="{{ url('/roomDiscounts') }}">
-              <i class="now-ui-icons text_caps-small"></i>
+              <i class="now-ui-icons design_bullet-list-67"></i>
               <p>Room Discounts</p>
             </a>
           </li>
@@ -139,6 +133,7 @@
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ url('/home') }}">User Menu</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
