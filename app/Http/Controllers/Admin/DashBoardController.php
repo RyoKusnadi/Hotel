@@ -18,12 +18,12 @@ class DashBoardController extends Controller
     }
 
     public function index(){
-        $availablerooms = DB::table('Rooms')
+        $availablerooms = DB::table('rooms')
         ->where('status', '=', 'AVAILABLE')
         ->orderBy('status','asc')
         ->count('id');
 
-        $usedrooms = DB::table('Rooms')
+        $usedrooms = DB::table('rooms')
         ->where('status', '=', 'USED')
         ->orderBy('status','asc')
         ->count('id');

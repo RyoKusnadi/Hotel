@@ -27,7 +27,7 @@ class RoomsController extends Controller
 
     public function report(){
         $rooms = Rooms::all();
-        return view('admin.roomsreport')
+        return view('admin.roomsReport')
             -> with('rooms',$rooms)
         ;
     }

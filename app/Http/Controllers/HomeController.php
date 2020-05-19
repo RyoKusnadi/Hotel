@@ -115,7 +115,7 @@ class HomeController extends Controller
         $bookings->save();
 
         Session::flash('statusCode','success');
-        return redirect('home')->with('status','Data Sucessfully Saved');
+        return redirect('mybooking')->with('status','Data Sucessfully Saved');
     }
 
     public function mybooking(){

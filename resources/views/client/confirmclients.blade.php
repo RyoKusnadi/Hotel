@@ -34,14 +34,6 @@
                     <th class="text-center">Photo</th>
                 </tr>
                 <tr>
-                    <th>BOOK By:</th>
-                    <td><input type="text" name="bookby" value="{{ $bookings->bookby }}" readonly></td>
-                    <input type="hidden" name="roomtype_id" value="{{ $bookings->roomtype_id }}" />
-                        <td rowspan="7"; align="center"><img src="{{ asset('uploads/'.$rp) }}" alt=""
-                            class="img img-responsive"
-                            style="width: 150px; margin: 30px auto;"></td>
-                </tr>
-                <tr>
                     <th>Room Type</th>
                     <td>
                         <select disabled="disabled" name="roomtype_id">
@@ -49,6 +41,10 @@
                             {{  $bookings->roomtypes['name'] }}
                         </option>
                         </select>
+                        <input type="hidden" name="roomtype_id" value="{{ $bookings->roomtype_id }}" />
+                        <td rowspan="6"; align="center"><img src="../../../../../../../uploads/{{$rp}}" alt=""
+                            class="img img-responsive"
+                            style="width: 450px; margin: 10px"></td>
                     </td>
                 </tr>
                 <tr>
@@ -63,14 +59,16 @@
                     <th>Check Out Date</th>
                     <td><input type="date" name="check_out" value="{{ $bookings->check_out }}" readonly></td>
                 </tr>
+                 <tr>
+                    <th>Price/Day</th>
+                    <td><input type="text" name="prc" value="{{ $prc }}" readonly></td>
+                </tr>
+                <input type="text" name="final_price" value="{{ $final_Price }}" readonly hidden>
                 <tr>
                     <th>Total Price</th>
                     <td><input type="text" name="total" value="{{ $totalprice }}" readonly></td>
                 </tr>
-                <tr>
-                    <th>Final Price</th>
-                    <td><input type="text" name="final_price" value="{{ $finalprice }}" readonly></td>
-                </tr>
+               
             </table>
             <tr>
                 <td><a href="/home" class="btn btn-danger" style="float: left;">BACK</a></td>
