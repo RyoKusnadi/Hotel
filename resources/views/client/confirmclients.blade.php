@@ -63,7 +63,7 @@
                     <th>Price/Day</th>
                     <td><input type="text" name="prc" value="{{ $prc }}" readonly></td>
                 </tr>
-                <input type="text" name="final_price" value="{{ $finalprice }}" readonly hidden>
+                <input type="text" name="final_price" value="{{ $final_Price }}" readonly hidden>
                 <tr>
                     <th>Total Price</th>
                     <td><input type="text" name="total" value="{{ $totalprice }}" readonly></td>
