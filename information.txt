@@ -1,0 +1,9 @@
+Link: rkstoryholic.com
+
+--Untuk Admin
+admin@domain.com
+
+password:makandulu
+--Untuk Client
+user@domain.com
+password:makandulu
