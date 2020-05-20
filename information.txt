@@ -1,9 +1,9 @@
 Link: rkstoryholic.com
 
 --Untuk Admin
-admin@domain.com
+Email: admin@domain.com
+password: makandulu
 
-password:makandulu
 --Untuk Client
-user@domain.com
-password:makandulu
+Email: user@domain.com
+password: makandulu
