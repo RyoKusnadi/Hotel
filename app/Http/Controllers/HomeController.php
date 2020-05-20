@@ -6,12 +6,12 @@ use DateTime;
 use Carbon\Carbon;
 use App\Models\Bookings;
 use App\Models\RoomTypes;
+use App\Models\Rooms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use App\Models\Rooms;
 
 class HomeController extends Controller
 {
@@ -25,9 +25,10 @@ class HomeController extends Controller
      *
      */
     public function index(){
+        $rooms = Rooms::all();
         $roomtypes = RoomTypes::all();
-        return view('client.main',compact('roomtypes'))
-        ->with('roomtypes',$roomtypes)
+        return view('client.main',compact('roomtypes','rooms'))
+        ->with('roomtypes',$roomtypes,'rooms',$rooms)
         ;
     }
 

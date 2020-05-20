@@ -93,80 +93,34 @@
   </section>
   
   <section class="ftco-section bg-light">
+
           <div class="container-fluid px-md-0">
               <div class="row no-gutters justify-content-center pb-5 mb-3">
-        <div class="col-md-7 heading-section text-center ftco-animate">
-          <h2>Our Room</h2>
-        </div>
-      </div>
-          <div class="row no-gutters">
-              <div class="col-lg-6">
-                  <div class="room-wrap d-md-flex">
-                      <a  class="img" style="background-image: url(assets/img/room-1.jpg);"></a>
-                      <div class="half left-arrow d-flex align-items-center">
-                          <div class="text p-4 p-xl-5 text-center">
-                              <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
-                              <p class="mb-0"><span class="price mr-1">Rp.1.500.000</span> <span class="per">per night</span></p>
-                              <h3 class="mb-3"><a href="rooms.html">Suite Room</a></h3>
-                              <ul class="list-accomodation">
-                                  <li><span>Max:</span> 3 Persons</li>
-                                  <li><span>Bed:</span> 1</li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2>Our Room</h2>
+                </div>
               </div>
-              <div class="col-lg-6">
-                  <div class="room-wrap d-md-flex">
-                      <a class="img" style="background-image: url(assets/img/room-2.jpg);"></a>
-                      <div class="half left-arrow d-flex align-items-center">
-                          <div class="text p-4 p-xl-5 text-center">
-                              <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
-                              <p class="mb-0"><span class="price mr-1">Rp.1.200.000</span> <span class="per">per night</span></p>
-                              <h3 class="mb-3"><a href="rooms.html">Standard Room</a></h3>
+             <div class="row no-gutters">
+                 @foreach($rooms as $room)
+                  <div class="col-lg-6" >
+                      <div class="room-wrap d-md-flex" >
+                          <a  class="img order-md-last" style="background-image: url(uploads/{{$room->roomPicture}});"></a>
+                          <div class="half right-arrow d-flex align-items-center">
+                              <div class="text p-4 p-xl-5 text-center">
+                                  <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
+                                  <p class="mb-0"><span class="price mr-1">Rp.{{number_format($room->roomTypes['price'], 0,',', '.')}}</span> <span class="per">per night</span></p>
+                                  <h3 class="mb-3"><a href="rooms.html">{{$room->roomTypes['name']}}</a></h3>
                                   <ul class="list-accomodation">
-                                  <li><span>Max:</span> 3 Persons</li>
-                                  <li><span>Bed:</span> 1</li>
-                              </ul>
+                                      <li><span>Max:</span> {{$room->maxCapacity}} Persons</li>
+                                      <li><span>Bed:</span> {{$room->beds}}</li>
+                                  </ul>
+                              </div>
                           </div>
                       </div>
                   </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="room-wrap d-md-flex">
-                      <a  class="img order-md-last" style="background-image: url(../assets/img/room-3.jpg);"></a>
-                      <div class="half right-arrow d-flex align-items-center">
-                          <div class="text p-4 p-xl-5 text-center">
-                              <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
-                              <p class="mb-0"><span class="price mr-1">Rp.1.700.000</span> <span class="per">per night</span></p>
-                              <h3 class="mb-3"><a href="rooms.html">Family Room</a></h3>
-                                  <ul class="list-accomodation">
-                                  <li><span>Max:</span> 5 Persons</li>
-                                  <li><span>Bed:</span> 2</li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="room-wrap d-md-flex">
-                      <a  class="img order-md-last" style="background-image: url(../assets/img/room-4.jpg);"></a>
-                      <div class="half right-arrow d-flex align-items-center">
-                          <div class="text p-4 p-xl-5 text-center">
-                              <p class="star mb-0"><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span></p>
-                              <p class="mb-0"><span class="price mr-1">Rp.2.100.000</span> <span class="per">per night</span></p>
-                              <h3 class="mb-3"><a href="rooms.html">Deluxe Room</a></h3>
-                                  <ul class="list-accomodation">
-                                  <li><span>Max:</span> 6 Persons</li>
-                                  <li><span>Bed:</span> 3</li>
-                              </ul>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          </div>
-
+                 @endforeach
+             </div>
+          
           <footer class="footer" style="float: left; padding:0px; margin:0; ">
             <p style="float: left"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
