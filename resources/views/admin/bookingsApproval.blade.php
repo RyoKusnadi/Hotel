@@ -27,6 +27,7 @@
                 <th>Check In</th>
                 <th>Check Out</th>
                 <th>Final Price</th>
+                <th>Book By</th>
                 <th></th>
                 <th></th>
               </thead>
@@ -41,6 +42,7 @@
                       <td>{{$data->check_in}}</td>
                       <td>{{$data->check_out}}</td>
                       <td>{{$data->final_price}}</td>
+                      <td>{{$data->users['name']}}</a></td>
                       <td></td>
                       @if ($data->status == 'WAITING')
                       <td>

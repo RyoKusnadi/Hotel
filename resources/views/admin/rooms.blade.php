@@ -96,6 +96,7 @@
                 <th>Bed</th>
                 <th>Max</th>
                 <th>Status</th>
+                <th>Picture</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -110,6 +111,9 @@
                       <td>{{$data->beds}} Bed</td>
                       <td>{{$data->maxCapacity}} Person</td>
                       <td>{{$data->status}}</td>
+                       <td style="width:15%" align="center"><img src="../../../../../../../uploads/{{$data->roomPicture}}" alt=""
+                                         class="img img-responsive"
+                                         style="width: 500px; margin: 30px auto;"></td>
                     <td><a href="rooms/{{ $data->id }}">Show Detail</a></td>
                       {{-- End Region Status --}}
                       <td><a href="{{url('editRooms/'.$data->id)}}" class="btn btn-success">EDIT</a></td>

@@ -27,7 +27,7 @@ class RoomsController extends Controller
 
     public function report(){
         $rooms = Rooms::all();
-        return view('admin.roomsreport')
+        return view('admin.roomsReport')
             -> with('rooms',$rooms)
         ;
     }
@@ -46,7 +46,7 @@ class RoomsController extends Controller
         if (request()->has('roompicture')) {
             $picture = $request->file('roompicture');
             $extension = $picture->getClientOriginalExtension();
-            Storage::disk('public')->put($picture->getFilename().'.'.$extension,  File::get($picture));
+            Storage::disk('public_html')->put($picture->getFilename().'.'.$extension,  File::get($picture));
             $rooms->roompicture = $picture->getFilename().'.'.$extension;
         }
 
@@ -80,7 +80,7 @@ class RoomsController extends Controller
         if (request()->has('roomPicture')) {
             $picture = $request->file('roomPicture');
             $extension = $picture->getClientOriginalExtension();
-            Storage::disk('public')->put($picture->getFilename().'.'.$extension,  File::get($picture));
+            Storage::disk('public_html')->put($picture->getFilename().'.'.$extension,  File::get($picture));
             $rooms->roomPicture = $picture->getFilename().'.'.$extension;
         }
         $rooms -> maxCapacity = $request -> input('maxCapacity');

@@ -37,9 +37,9 @@
                         </select>
                         <input type="hidden" name="room_id" value="{{ $bookings->room_id }}" />
                     </td>
-                    <td rowspan="6"; align="center"><img src="{{ asset('uploads/'.$bookings->rooms['roomPicture']) }}" alt=""
-                                         class="img img-responsive"
-                                         style="width: 150px; margin: 30px auto;"></td>
+                    <td rowspan="7"; align="center">
+                        <img src="../../../../../../../uploads/{{$bookings->rooms['roomPicture']}}" alt="" class="img img-responsive" style="width: 450px; margin: 30px auto;">
+                    </td>
                 </tr>
 
                 <tr>

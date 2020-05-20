@@ -21,7 +21,6 @@
             <table class="table">
                 <thead class=" text-primary">
                     <th>Name</th>
-                    <th>Id No</th>
                     <th>Phone</th>
                     <th>Email</th>
                     <th>User Type</th>
@@ -31,7 +30,6 @@
                 <tr>
                     <td>{{$row->name}}</td>
                     <td>{{$row->phone}}</td>
-                    <td>{{$row->identification_no}}</td>
                     <td>{{$row->email}}</td>
                     <td>-{{$row->user_type}}</td>
                     <td>

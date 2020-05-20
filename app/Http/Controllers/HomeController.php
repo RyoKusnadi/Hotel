@@ -86,7 +86,7 @@ class HomeController extends Controller
         //Final Price 
         $finalprice = $totalprice - ($totalprice*($disc*0.01));
 
-        return view('client.confirmclients', compact('finalprice','nextInvoiceNumber','totalprice','bookings', 'days','rp'));
+        return view('client.confirmclients', compact('finalprice','nextInvoiceNumber','totalprice','bookings', 'days','rp','prc'));
     }}
     
     public function save(request $request){
@@ -115,7 +115,7 @@ class HomeController extends Controller
         $bookings->save();
 
         Session::flash('statusCode','success');
-        return redirect('home')->with('status','Data Sucessfully Saved');
+        return redirect('mybooking')->with('status','Data Sucessfully Saved');
     }
 
     public function mybooking(){

@@ -19,9 +19,9 @@
                 <tr>
                     <th>Room Type</th>
                     <td>{{ $rooms->roomtypes['name']}}</td>
-                    <td rowspan="6"; align="center"><img src="{{ asset('uploads/'.$rooms->roomPicture) }}" alt=""
+                    <td rowspan="6"; align="center"><img src="../../../../../../../uploads/{{$rooms->roomPicture}}" alt=""
                                          class="img img-responsive"
-                                         style="width: 150px; margin: 30px auto;"></td>
+                                         style="width: 500px; margin: 30px auto;"></td>
                 </tr>
 
                 <tr>

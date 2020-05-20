@@ -80,19 +80,20 @@
           </h4>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
+          <div class="table-responsive" style='width:100%'>
             <table class="table table-stripped" id="dataTable" >
               <thead class=" text-primary">
                 <th>Id</th>
                 <th>Book No</th>
-                <th>Room No</th>
+                <th>Room</th>
                 <th>Room Type</th>
                 <th>Status</th>
                 <th>Check In</th>
                 <th>Check Out</th>
                 <th>Total</th>
-                <th>Discount</th>
+                <th>Disc</th>
                 <th>Final Price</th>
+                <th>Book By</th>
                 <th></th>
                 <th></th>
               </thead>
@@ -109,6 +110,7 @@
                       <td>{{$data->total}}</td>
                       <td>{{$data->roomdiscounts['value']}}%</td>
                       <td>{{$data->final_price}}</td>
+                      <td>{{$data->users['name']}}</a></td>
                       <td><a href="{{url('editBookings/'.$data->id)}}" class="btn btn-success">EDIT</a></td>
                       <td>
                           <form action="{{url('deleteBookings/'.$data->id)}}" method="POST">

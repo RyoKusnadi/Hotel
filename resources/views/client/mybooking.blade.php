@@ -22,7 +22,6 @@
               <thead class=" text-primary">
                 <th>Id</th>
                 <th>Book No</th>
-                <th>Room No</th>
                 <th>Room Type</th>
                 <th>Status</th>
                 <th>Check In</th>
@@ -36,7 +35,6 @@
                   <tr>
                       <td>{{$index +1}}</td>
                       <td>{{$data->bookno}}</a></td>
-                      <td>{{$data->rooms['roomNo']}}</a></td>
                       <td>{{$data->roomtypes['name']}}</a></td>
                       <td>{{$data->status}}</td>
                       <td>{{$data->check_in}}</td>

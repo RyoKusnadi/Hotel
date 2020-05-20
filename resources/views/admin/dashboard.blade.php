@@ -19,7 +19,7 @@
           <div><h2>{{$receivedreservation}}  CLIENTS</h2></div>
         </div>
         <div class="card-footer" style="background-color: #2F66A9">
-          <a href="/dashboard" style="color:#FFD400">
+          <a href="/bookingapprovals" style="color:#FFD400">
               <div class="panel-footer">
                   <span class="pull-left">View Details</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -42,7 +42,7 @@
           <div><h2>{{$canceledreservation}}  CLIENTS</h2></div>
         </div>
         <div class="card-footer" style="background-color: #2F66A9">
-          <a href="/dashboard" style="color:#FFD400">
+          <a href="/bookingapprovals" style="color:#FFD400">
               <div class="panel-footer">
                   <span class="pull-left">View Details</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

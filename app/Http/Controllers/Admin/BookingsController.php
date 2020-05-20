@@ -166,6 +166,6 @@ class BookingsController extends Controller
     public function report(){
         $bookings = Bookings::all();
         $users = new User;
-        return view('admin.bookingsreport',compact('users'))-> with('bookings',$bookings,$users,'users');
+        return view('admin.bookingsReport',compact('users'))-> with('bookings',$bookings,$users,'users');
     }
 }
