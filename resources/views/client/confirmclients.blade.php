@@ -44,7 +44,7 @@
                         <input type="hidden" name="roomtype_id" value="{{ $bookings->roomtype_id }}" />
                         <td rowspan="6"; align="center"><img src="../../../../../../../uploads/{{$rp}}" alt=""
                             class="img img-responsive"
-                            style="width: 350px; margin: 10px"></td>
+                            style="width: 450px; margin: 10px"></td>
                     </td>
                 </tr>
                 <tr>
@@ -59,14 +59,14 @@
                     <th>Check Out Date</th>
                     <td><input type="date" name="check_out" value="{{ $bookings->check_out }}" readonly></td>
                 </tr>
-                
                  <tr>
-                    <th>Price/Night</th>
-                    <td><input type="text" name="prc" value="Rp.{{number_format($prc, 0,',', '.')}}" readonly></td>
+                    <th>Price/Day</th>
+                    <td><input type="text" name="prc" value="{{ $prc }}" readonly></td>
                 </tr>
+                <input type="text" name="final_price" value="{{ $finalprice }}" readonly hidden>
                 <tr>
                     <th>Total Price</th>
-                    <td><input type="text" name="total" value="Rp.{{number_format($totalprice, 0,',', '.')}}" readonly></td>
+                    <td><input type="text" name="total" value="{{ $totalprice }}" readonly></td>
                 </tr>
                
             </table>

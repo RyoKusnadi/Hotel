@@ -126,7 +126,13 @@ class HomeController extends Controller
         $bookings = Bookings::where('userid', '=', $userId)->orderBy('bookno', 'DESC')->first();
         $rooms = Rooms::all();
         $roomtypes = RoomTypes::all();
-        return view('client.myInvoice',compact('bookings','roomtypes','rooms'));
+        
+        $rp = DB::table('rooms')
+        ->where('roomtype_id', '=', $bookings -> roomtype_id)
+        ->orderBy('roomPicture','asc')
+        ->value('roomPicture');
+        
+        return view('client.myInvoice',compact('bookings','roomtypes','rooms','rp'));
     }
 
     public function mybooking(){
