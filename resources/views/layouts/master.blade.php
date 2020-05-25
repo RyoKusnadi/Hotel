@@ -18,7 +18,7 @@
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   {{-- <link href="../assets/demo/demo.css" rel="stylesheet" /> --}}
-  <link rel="stylesheet" href="{{asset('assets/css/dataTables.min.css') }}">
+  <link rel="stylesheet" href="assets/css/dataTables.min.css">
 
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
 
@@ -29,10 +29,10 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="orange">
       <div class="logo">
-        <a href="https://www.linkedin.com/in/ryo-kusnadi/" class="simple-text logo-mini">
+        <a class="simple-text logo-mini">
           RK
         </a>
-        <a href="https://www.linkedin.com/in/ryo-kusnadi/" class="simple-text logo-normal">
+        <a class="simple-text logo-normal">
           RK Story Hotel
         </a>
       </div>
@@ -134,6 +134,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ url('/home') }}">User Menu</a>
+                    <a class="dropdown-item" href="{{ url('/updateProfileAdmin') }}">Update Profile</a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                        onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -199,7 +200,7 @@
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
-  <script src="{{asset('assets/js/sweetalert.min.js') }}"></script>
+  <script src="../assets/js/sweetalert.min.js"></script>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

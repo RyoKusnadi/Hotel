@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class DashBoardController extends Controller
 {
@@ -77,5 +79,38 @@ class DashBoardController extends Controller
         $users ->delete();
 
         return redirect('/usersRole')->with('status','Your Data Is Deleted');
+    }
+
+    public function updateProfile(){
+        $userId = Auth::id();
+        $users = User::findorFail($userId);
+        return view('admin.updateProfile',compact('users'));
+    }
+
+    public function finalUpdate(request $request,$id){
+            $users = User::findorFail($id);
+            $users -> name = $request -> input('name');
+            $users -> phone = $request -> input('phone');
+            $users -> email = $request -> input('email');
+
+                if($request -> input('password') == "" && $request ->input('password') == "")
+                {
+                    $users->save();
+                    Session::flash('statusCode','success');
+                    return redirect('/dashboard')->with('status','Data Sucessfully Saved');
+                }   
+                else
+                {
+                    if($request -> input('password') !=  $request ->input('password_confirmation')){
+                        Session::flash('statusCode','error');
+                        return redirect('/updateProfileAdmin')->with('status','Password Not Same');
+                    }
+                    else{
+                        $users -> password = Hash::make($request -> input('password'));
+                        $users->save();
+                        Session::flash('statusCode','success');
+                        return redirect('/dashboard')->with('status','Data Sucessfully Saved');
+                    }
+                }
     }
 }

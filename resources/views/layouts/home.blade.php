@@ -34,7 +34,7 @@
   <body>
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	    	<a class="navbar-brand" href="index.html">RKSTORY<span>HOTEL</span></a>
+	    	<a class="navbar-brand">RKSTORY<span>HOTEL</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="fa fa-bars"></span> Menu
 	      </button>
@@ -55,6 +55,7 @@
               <?php $role= Auth::user()->user_type ?>
               @if($role == "admin")
                         <a class="dropdown-item" href="{{ url('/dashboard') }}">ADMIN</a>
+                        <a class="dropdown-item" href="{{ url('/updateProfile') }}">Update Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -64,6 +65,7 @@
                           @csrf
                         </form>
               @else
+                        <a class="dropdown-item" href="{{ url('/updateProfile') }}">Update Profile</a>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -112,7 +114,7 @@
   <script src="../../js/jquery.magnific-popup.min.js"></script>
   <script src="../../js/scrollax.min.js"></script>
   <script src="../../js/main.js"></script>
-  <script src="{{asset('assets/js/sweetalert.min.js') }}"></script>
+  <script src="../assets/js/sweetalert.min.js"></script>
   
   <script>
     @if (session('status'))

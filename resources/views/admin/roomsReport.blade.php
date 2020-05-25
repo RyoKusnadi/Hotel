@@ -11,7 +11,6 @@
         <div class="card-header">
           <h4 class="card-title"> 
             Rooms Report
-            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">ADD</button>
           </h4>
         </div>
         <div class="card-body">

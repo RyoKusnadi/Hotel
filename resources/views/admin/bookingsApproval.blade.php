@@ -11,8 +11,7 @@
       <div class="card">
         <div class="card-header">
           <h4 class="card-title"> 
-            Booking
-            <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">ADD</button>
+            Booking Approval
           </h4>
         </div>
         <div class="card-body">

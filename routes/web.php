@@ -21,10 +21,17 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::post('/confirmClients', 'HomeController@show');
 Route::post('/saveClients', 'HomeController@save');
+Route::get('/myInvoice', 'HomeController@myInvoice');
+
 Route::get('/mybooking', 'HomeController@mybooking');
+Route::get('/updateProfile', 'HomeController@updateProfile');
+Route::put('/finalUpdate/{id}', 'HomeController@finalUpdate');
 
 
 Route::group(['middleware' => ['auth','admin']], function () {
+    Route::get('/updateProfileAdmin', 'Admin\DashBoardController@updateProfile');
+    Route::put('/finalUpdateAdmin/{id}', 'Admin\DashBoardController@finalUpdate');
+
     Route::get('/dashboard','Admin\DashBoardController@index');
     Route::get('/usersRole','Admin\DashBoardController@usersRoles');
     Route::get('/editUR/{id}','Admin\DashBoardController@usersRolesEdit');
@@ -47,7 +54,7 @@ Route::group(['middleware' => ['auth','admin']], function () {
     Route::get('/roomsReport','Admin\RoomsController@report');
     Route::get('/rooms/{id}','Admin\RoomsController@show');
     Route::post('/saveRooms','Admin\RoomsController@save');
-    Route::get('/editRooms/{id}','Admin\RoomsController@edit');
+    Route::put('/editRooms/{id}','Admin\RoomsController@edit');
     Route::put('/updateRooms/{id}','Admin\RoomsController@update');
     Route::delete('/deleteRooms/{id}','Admin\RoomsController@delete');
 

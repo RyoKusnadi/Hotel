@@ -18,19 +18,17 @@
 </style>
 
 @section('title')
-    CONFIRM BOOKING
+    Invoice
 @endsection
 
 @section('content')
     <div class="row align-items-center" style="display:flex; width:90%; margin:0 auto; padding-left:2.6em">
         <div class="col-md-11">
-            <h2><i class="fa fa-user"></i>CONFIRM BOOKING</h2>
-            <form action="/saveClients" method="POST" enctype="multipart/form-data">
-            {{ csrf_field() }}
+            <h2><i class="fa fa-user"></i>Invoice</h2>
             <table class="table table-hover table-striped table-bordered mt-1">
                 <tr>
                     <th>BOOK NUMBER:</th>
-                    <td><input type="text" name="bookno" value="{{ $nextInvoiceNumber }}" readonly></td>
+                    <td><input type="text" name="bookno" value="{{ $bookings->bookno  }}" readonly></td>
                     <th class="text-center">Photo</th>
                 </tr>
                 <tr>
@@ -42,14 +40,10 @@
                         </option>
                         </select>
                         <input type="hidden" name="roomtype_id" value="{{ $bookings->roomtype_id }}" />
-                        <td rowspan="6"; align="center"><img src="../../../../../../../uploads/{{$rp}}" alt=""
+                        <td rowspan="6"; align="center"><img src="../../../../../../../uploads/{{$bookings->roomtypes['roomPicture']}}" alt=""
                             class="img img-responsive"
                             style="width: 350px; margin: 10px"></td>
                     </td>
-                </tr>
-                <tr>
-                    <th>Status</th>
-                    <td>NEW</td>
                 </tr>
                 <tr>
                     <th>Check In Date:</th>
@@ -59,22 +53,18 @@
                     <th>Check Out Date</th>
                     <td><input type="date" name="check_out" value="{{ $bookings->check_out }}" readonly></td>
                 </tr>
-                
                  <tr>
                     <th>Price/Night</th>
-                    <td><input type="text" name="prc" value="Rp.{{number_format($prc, 0,',', '.')}}" readonly></td>
+                    <td><input type="text" name="prc" value="Rp.{{number_format($bookings->roomTypes['price'], 0,',', '.')}}" readonly></td>
                 </tr>
                 <tr>
                     <th>Total Price</th>
-                    <td><input type="text" name="total" value="Rp.{{number_format($totalprice, 0,',', '.')}}" readonly></td>
+                    <td><input type="text" name="total" value="Rp.{{number_format($bookings->final_price, 0,',', '.')}}" readonly></td>
                 </tr>
-               
             </table>
             <tr>
-                <td><a href="/home" class="btn btn-danger" style="float: left;">BACK</a></td>
-                <td><button type="submit" class="btn btn-success">Submit</button></td>
+                <td><a href="/home" class="btn btn-success" style="float: left;">BACK</a></td>
             </tr>
-        </form>
     </div>
 
     <footer class="footer" style="float: left; padding:0px; margin:0; ">

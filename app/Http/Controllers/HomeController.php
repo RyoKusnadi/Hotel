@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use DateTime;
 use Carbon\Carbon;
+use App\Models\Rooms;
 use App\Models\Bookings;
 use App\Models\RoomTypes;
-use App\Models\Rooms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -116,7 +118,15 @@ class HomeController extends Controller
         $bookings->save();
 
         Session::flash('statusCode','success');
-        return redirect('mybooking')->with('status','Data Sucessfully Saved');
+        return redirect('myInvoice')->with('status','Room Successfully Booked');
+    }
+
+    public function myInvoice(){
+        $userId = Auth::id();
+        $bookings = Bookings::where('userid', '=', $userId)->orderBy('bookno', 'DESC')->first();
+        $rooms = Rooms::all();
+        $roomtypes = RoomTypes::all();
+        return view('client.myInvoice',compact('bookings','roomtypes','rooms'));
     }
 
     public function mybooking(){
@@ -125,5 +135,38 @@ class HomeController extends Controller
         $rooms = Rooms::all();
         $roomtypes = RoomTypes::all();
         return view('client.mybooking',compact('bookings','roomtypes','rooms'));
+    }
+
+    public function updateProfile(){
+        $userId = Auth::id();
+        $users = User::findorFail($userId);
+        return view('auth.updateProfile',compact('users'));
+    }
+
+    public function finalUpdate(request $request,$id){
+            $users = User::findorFail($id);
+            $users -> name = $request -> input('name');
+            $users -> phone = $request -> input('phone');
+            $users -> email = $request -> input('email');
+
+                if($request -> input('password') == "" && $request ->input('password') == "")
+                {
+                    $users->save();
+                    Session::flash('statusCode','success');
+                    return redirect('/')->with('status','Data Sucessfully Saved');
+                }   
+                else
+                {
+                    if($request -> input('password') !=  $request ->input('password_confirmation')){
+                        Session::flash('statusCode','error');
+                        return redirect('/updateProfile')->with('status','Password Not Same');
+                    }
+                    else{
+                        $users -> password = Hash::make($request -> input('password'));
+                        $users->save();
+                        Session::flash('statusCode','success');
+                        return redirect('/')->with('status','Data Sucessfully Saved');
+                    }
+                }
     }
 }
