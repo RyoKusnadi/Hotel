@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 20, 2020 at 10:11 PM
+-- Generation Time: May 27, 2020 at 07:02 PM
 -- Server version: 10.3.22-MariaDB-log-cll-lve
 -- PHP Version: 7.3.6
 
@@ -54,7 +54,15 @@ INSERT INTO `bookings` (`id`, `bookno`, `bookby`, `userid`, `room_id`, `roomtype
 (2, 'INV2020-2', NULL, '10', NULL, 2, 'CANCEL', '2020-05-18', '2020-05-19', 1500000, NULL, 1500000, '2020-05-19 06:15:06', '2020-05-19 06:16:23'),
 (3, 'INV2020-3', NULL, '10', NULL, 2, 'APPROVED', '2020-05-20', '2020-05-21', 1500000, NULL, 1500000, '2020-05-19 06:15:20', '2020-05-19 06:16:33'),
 (4, 'INV2020-4', NULL, '11', NULL, 2, 'WAITING', '2020-05-20', '2020-05-21', 1500000, NULL, 1500000, '2020-05-20 04:55:59', '2020-05-20 04:55:59'),
-(5, 'INV2020-5', NULL, '13', NULL, 2, 'APPROVED', '2020-05-20', '2020-05-21', 1500000, NULL, 1500000, '2020-05-20 05:37:20', '2020-05-20 05:42:40');
+(5, 'INV2020-5', NULL, '13', NULL, 2, 'APPROVED', '2020-05-20', '2020-05-21', 1500000, NULL, 1500000, '2020-05-20 05:37:20', '2020-05-20 05:42:40'),
+(6, 'INV2020-6', NULL, '1', NULL, 2, 'WAITING', '2020-05-20', '2020-05-22', 3000000, NULL, 3000000, '2020-05-20 08:48:55', '2020-05-20 08:48:55'),
+(7, 'INV2020-7', NULL, '12', NULL, 2, 'WAITING', '2020-05-29', '2020-05-12', 25500000, NULL, 25500000, '2020-05-22 22:44:24', '2020-05-22 22:44:24'),
+(8, 'INV2020-8', NULL, '12', NULL, 2, 'WAITING', '2020-05-20', '2020-05-25', 7500000, NULL, 7500000, '2020-05-25 01:00:54', '2020-05-25 01:00:54'),
+(9, 'INV2020-9', NULL, '12', NULL, 2, 'WAITING', '2020-05-20', '2020-05-25', 7500000, NULL, 7500000, '2020-05-25 01:01:29', '2020-05-25 01:01:29'),
+(10, 'INV2020-10', NULL, '12', NULL, 2, 'WAITING', '2020-05-25', '2020-05-27', 3000000, NULL, 3000000, '2020-05-25 01:02:30', '2020-05-25 01:02:30'),
+(11, 'INV2020-11', NULL, '14', NULL, 2, 'WAITING', '2020-05-25', '2020-05-26', 1500000, NULL, 1500000, '2020-05-25 02:05:07', '2020-05-25 02:05:07'),
+(12, 'INV2020-12', NULL, '14', NULL, 2, 'WAITING', '2020-05-25', '2020-05-26', 1500000, NULL, 1500000, '2020-05-25 02:17:39', '2020-05-25 02:17:39'),
+(13, 'INV2020-13', NULL, '14', NULL, 2, 'WAITING', '2020-05-25', '2020-05-27', 3000000, NULL, 3000000, '2020-05-25 02:21:00', '2020-05-25 02:21:00');
 
 -- --------------------------------------------------------
 
@@ -249,10 +257,11 @@ INSERT INTO `users` (`id`, `name`, `user_type`, `phone`, `email`, `email_verifie
 (4, 'User', NULL, '09128747821365', 'usermail@gmail.com', NULL, '$2y$10$YIElUrCmZqGnLyuq8ADzYuUPyK9PzDhpFcvmqgb2hDzpsqEIQv4L2', NULL, '2020-05-17 05:47:56', '2020-05-17 05:47:56'),
 (5, 'Avian', NULL, '08667273666', 'abyss5238@gmail.com', NULL, '$2y$10$.RbyYB5bzDadxztX4sgpoOJFZ0XZUxncLjMlG.xtZJcdO/nAEhgl.', NULL, '2020-05-17 05:56:13', '2020-05-17 05:56:13'),
 (7, 'Chris Tiano', NULL, '081364979927', 'chrisferbia@gmail.com', NULL, '$2y$10$L9HIe8peQZIPo9ZGE3YUR.2eBRYmmx8ovW99s4nyzZbhIY055bzuu', NULL, '2020-05-18 01:00:58', '2020-05-18 01:00:58'),
-(10, 'coba', NULL, '082169652699', 'makan@gmail.com', NULL, '$2y$10$UHlUa4.Wn6Wj2HcueKsfUuz2pFq0CyqxxD1180qCoj8NNcRZaj3qy', NULL, '2020-05-19 06:09:26', '2020-05-19 06:09:26'),
+(10, 'coba1', 'admin', '082169652699', 'makan@gmail.com', NULL, '$2y$10$jjvyGaEwQPmS5uzDyDG0leOS0iw5esjPXHsPA9OSppOAPrac0MZxC', NULL, '2020-05-19 06:09:26', '2020-05-25 02:03:19'),
 (11, 'ryo', NULL, '082169652699', 'manasaja@gmail.com', NULL, '$2y$10$xT1gasoLW4Zu5r5cbgwV.eb/2GpH.wWPncUvCiIGHiZoqNuOAf6QC', NULL, '2020-05-20 04:55:42', '2020-05-20 04:55:42'),
-(12, 'user', NULL, '082169652699', 'user@domain.com', NULL, '$2y$10$.G4wyVVs9wonBoQOClpXUur9iWdpKrPb8pVIrQexf5wNQLDBT2u/y', NULL, '2020-05-20 05:07:56', '2020-05-20 05:07:56'),
-(13, 'Testing', NULL, '03742843242', 'test@yahoo.com', NULL, '$2y$10$DeZvybtcQFh.NAcYD1lTjuXnwFdRkkJI0kNArv43L1cHrbxdBLHca', NULL, '2020-05-20 05:37:01', '2020-05-20 05:37:01');
+(12, 'user2', NULL, '082169652699', 'user@domain.com', NULL, '$2y$10$.G4wyVVs9wonBoQOClpXUur9iWdpKrPb8pVIrQexf5wNQLDBT2u/y', NULL, '2020-05-20 05:07:56', '2020-05-25 01:58:51'),
+(13, 'Testing', NULL, '03742843242', 'test@yahoo.com', NULL, '$2y$10$DeZvybtcQFh.NAcYD1lTjuXnwFdRkkJI0kNArv43L1cHrbxdBLHca', NULL, '2020-05-20 05:37:01', '2020-05-20 05:37:01'),
+(14, 'coba', NULL, '12345678901', 'coba@gmail.com', NULL, '$2y$10$KE2I.35Pl7RfSHHKqMTLduDlUtklSd1kgFyRZ2FjOEvlGu7w7AUtW', NULL, '2020-05-25 02:01:30', '2020-05-25 02:01:39');
 
 --
 -- Indexes for dumped tables
@@ -327,7 +336,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `extraservices`
@@ -369,7 +378,7 @@ ALTER TABLE `roomtypes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
